@@ -1,0 +1,38 @@
+{
+    "name": "hi-frontend",
+    "version": "1.0.0",
+    "description": "The frontend of the HelpIT ticket system.",
+    "main": "server.js",
+    "type": "module",
+    "scripts": {
+        "start": "node server.js",
+        "postinstall": "node postBuild.js"
+    },
+    "keywords": [],
+    "author": "Minecat",
+    "license": "none",
+    "dependencies": {
+        "body-parser": "^2.2.1",
+        "cors": "^2.8.5",
+        "express": "^5.2.1"
+    },
+    "installPath": "~/helpit/website/",
+    "nginx": {
+        "service": {
+            "name": "hi-frontend",
+            "port": 3001,
+            "uri": "",
+            "https": false,
+            "servers": ["localhost"]
+        },
+        "localhost": {
+            "urls": ["127.0.0.1", "localhost", "192.168.10.184"],
+            "certificate": "/etc/ssl/certs/local.crt", 
+            "certificateKey": "/etc/ssl/private/local.key"
+        }
+    },
+    "pm2": {
+        "name": "hi-frontend",
+        "file": "server.js"
+    }
+}
