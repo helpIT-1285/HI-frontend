@@ -11,9 +11,9 @@ const publicFolder = "public";
 
 app.use(express.static(path.join(__dirname, publicFolder)));
 
-app.get("*", (req, res) => {
+app.use((req, res) => {
     res.sendFile(path.join(__dirname, publicFolder, "index.html"));
-});
+})
 
 const PORT = process.env.port || 3001;
 app.listen(PORT, () => {
