@@ -87,6 +87,8 @@ function TicketEdit() {
             <input
                 type="number"
                 value={priority}
+                min={1}
+                max={5}
                 onChange={e => setPriority(Number(e.target.value))}
             />
 
