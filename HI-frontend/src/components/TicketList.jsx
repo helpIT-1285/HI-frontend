@@ -11,7 +11,7 @@ function Tickets({filter}) {
     useEffect(() => {
         async function loadTickets() {
             try {
-                const res = await fetch(`${getApiBaseUrl()}/api/v1/tickets`)
+                const res = await fetch(`${getApiBaseUrl()}/tickets`)
                 if (!res.ok) throw new Error("Failed to fetch")
                 const data = await res.json()
 
