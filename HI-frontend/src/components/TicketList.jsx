@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 
 import TicketItem from "./TicketItem.jsx";
+import { getApiBaseUrl } from "../config.js";
 
 function Tickets({filter}) {
     const [tickets, setTickets] = useState([])
@@ -10,7 +11,7 @@ function Tickets({filter}) {
     useEffect(() => {
         async function loadTickets() {
             try {
-                const res = await fetch("https://192.168.10.184/api/v1/tickets")
+                const res = await fetch(`${getApiBaseUrl()}/api/v1/tickets`)
                 if (!res.ok) throw new Error("Failed to fetch")
                 const data = await res.json()
 

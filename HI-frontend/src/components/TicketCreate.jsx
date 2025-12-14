@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { getApiBaseUrl } from "../config";
 
 function TicketCreate() {
     const navigate = useNavigate();
@@ -25,7 +26,7 @@ function TicketCreate() {
         }
 
         try {
-            const res = await fetch("https://192.168.10.184/api/v1/tickets", {
+            const res = await fetch(`${getApiBaseUrl()}/tickets`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

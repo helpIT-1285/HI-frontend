@@ -1,5 +1,6 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { getApiBaseUrl } from "../config";
 
 function TicketDetail() {
     const { id } = useParams();
@@ -8,7 +9,7 @@ function TicketDetail() {
     const navigate = useNavigate();
 
     async function deleteTicket(id) {
-        const res = await fetch(`https://192.168.10.184/api/v1/tickets/${id}`, {
+        const res = await fetch(`${getApiBaseUrl()}/tickets/${id}`, {
             method: "DELETE"
         })
 
@@ -21,7 +22,7 @@ function TicketDetail() {
 
     useEffect(() => {
         async function fetchTicket() {
-            const res = await fetch(`https://192.168.10.184/api/v1/tickets/${id}`);
+            const res = await fetch(`${getApiBaseUrl()}/tickets/${id}`);
             const data = await res.json();
             setTicket(data.data);
         }

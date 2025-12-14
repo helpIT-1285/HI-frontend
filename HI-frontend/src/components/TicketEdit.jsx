@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { getApiBaseUrl } from "../config";
 
 function TicketEdit() {
     const { id } = useParams();
@@ -17,7 +18,7 @@ function TicketEdit() {
     useEffect(() => {
         async function loadTicket() {
             try {
-                const res = await fetch(`https://192.168.10.184/api/v1/tickets/${id}`);
+                const res = await fetch(`${getApiBaseUrl()}/tickets/${id}`);
                 if (!res.ok) throw new Error("Failed to load ticket");
                 let data = await res.json();
                 data = data.data;
@@ -39,7 +40,7 @@ function TicketEdit() {
     }, [id]);
 
     async function saveTicket() {
-        const res = await fetch(`https://192.168.10.184/api/v1/tickets/${id}`, {
+        const res = await fetch(`${getApiBaseUrl()}/tickets/${id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
