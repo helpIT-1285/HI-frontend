@@ -46,6 +46,7 @@ function TicketDetail() {
             <p>{ticket.state}</p>
             <br />
             <p>Created: {ticket.creationDate}</p>
+            <p>Updated: {ticket.updateDate}</p>
             <br />
             <div>
                 <Link className="editButton" to={`/ticket/${id}/edit`}>Edit</Link>
