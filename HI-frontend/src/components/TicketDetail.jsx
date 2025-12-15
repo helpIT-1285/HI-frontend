@@ -52,6 +52,8 @@ function TicketDetail() {
             <p>Created: {ticket.creationDate}</p>
             <p>Updated: {ticket.updateDate}</p>
             <br />
+            <p>{ticket.comment}</p>
+            <br />
             <div>
                 <Link className="editButton" to={`/ticket/${id}/edit`}>Edit</Link>
                 <button className="deleteButton" onClick={() => deleteTicket(id)}>Delete</button>

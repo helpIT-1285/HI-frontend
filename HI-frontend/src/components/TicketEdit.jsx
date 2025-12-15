@@ -14,6 +14,7 @@ function TicketEdit() {
     const [state, setState] = useState("");
     const [assignedTo, setAssignedTo] = useState("");
     const [customer, setCustomer] = useState("");
+    const [comment, setComment] = useState("");
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
@@ -31,6 +32,7 @@ function TicketEdit() {
                 setState(data.state);
                 setAssignedTo(data.assignedTo);
                 setCustomer(data.customer);
+                setComment(data.comment);
             } catch (err) {
                 setError(err.message);
             } finally {
@@ -53,7 +55,8 @@ function TicketEdit() {
                 priority,
                 state,
                 assignedTo,
-                customer
+                customer,
+                comment
             })
         });
 
@@ -112,6 +115,13 @@ function TicketEdit() {
             <input
                 value={customer}
                 onChange={e => setCustomer(e.target.value)}
+            />
+
+            <br />
+            <p>Comment:</p>
+            <textarea
+                value={comment}
+                onChange={e => setComment(e.target.value)}
             />
 
             <button onClick={saveTicket}>
