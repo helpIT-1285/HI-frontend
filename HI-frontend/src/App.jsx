@@ -9,7 +9,8 @@ import TicketDetail from './components/TicketDetail.jsx';
 import TicketEdit from './components/TicketEdit.jsx';
 import TicketCreate from './components/TicketCreate.jsx'
 
-window.API_BASE_URL = "https://192.168.10.184/api/v1";
+const url = window.location.href;
+window.API_BASE_URL = `${url}api/v1`;
 
 function App() {
     return (
