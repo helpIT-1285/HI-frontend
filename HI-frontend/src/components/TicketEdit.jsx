@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { getApiBaseUrl } from "../config";
 
+import Stars from "./StarsEdit.jsx";
+
 function TicketEdit() {
     const { id } = useParams();
     const navigate = useNavigate();
@@ -84,13 +86,7 @@ function TicketEdit() {
 
             <br />
             <p>Priority:</p>
-            <input
-                type="number"
-                value={priority}
-                min={1}
-                max={5}
-                onChange={e => setPriority(Number(e.target.value))}
-            />
+            <Stars priority={priority} setPriority={setPriority}/>
 
             <br />
             <p>Status:</p>

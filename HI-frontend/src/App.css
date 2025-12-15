@@ -225,3 +225,14 @@ nav .newTicket:hover {
 .ticketEdit button:active {
     transform: scale(0.9);
 }
+
+.stars {
+    display: flex;
+    flex-direction: row;
+}
+
+.starsEdit {
+    display: flex;
+    flex-direction: row;
+    margin-left: 10px;
+}

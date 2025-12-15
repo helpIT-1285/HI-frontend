@@ -1,5 +1,7 @@
 import { useNavigate } from "react-router-dom";
 
+import Stars from "./Stars.jsx";
+
 function TicketItem({ ticketId, title, description, priority, state, assignedTo }) {
     const navigate = useNavigate();
 
@@ -9,7 +11,7 @@ function TicketItem({ ticketId, title, description, priority, state, assignedTo 
             <br />
             <p>{description}</p>
             <hr />
-            <p>Priority: {priority}</p>
+            <Stars priority={priority}/>
             <p>Assigned to: {assignedTo}</p>
             <br />
             <p>{state}</p>

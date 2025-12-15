@@ -2,6 +2,8 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getApiBaseUrl } from "../config";
 
+import Stars from "./Stars.jsx";
+
 function TicketDetail() {
     const { id } = useParams();
     const [ticket, setTicket] = useState(null);
@@ -40,8 +42,8 @@ function TicketDetail() {
             <p>Assigned To: <b>{ticket.assignedTo}</b></p>
             <p>Customer: <b>{ticket.customer}</b></p>
             <br />
+            <Stars priority={ticket.priority}/>
             <p>{ticket.state}</p>
-            <p>Priority: {ticket.priority}</p>
             <br />
             <p>Created: {ticket.creationDate}</p>
             <br />
