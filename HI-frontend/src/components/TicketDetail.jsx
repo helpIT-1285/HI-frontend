@@ -11,6 +11,10 @@ function TicketDetail() {
     const navigate = useNavigate();
 
     async function deleteTicket(id) {
+        if (!window.confirm('Do you want to delete this ticket?')) {
+            return
+        }
+ 
         const res = await fetch(`${getApiBaseUrl()}/tickets/${id}`, {
             method: "DELETE"
         })
