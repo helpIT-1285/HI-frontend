@@ -52,6 +52,7 @@ function TicketDetail() {
             <p>Created: {ticket.creationDate}</p>
             <p>Updated: {ticket.updateDate}</p>
             <br />
+            <p>Comments:</p>
             <p>{ticket.comment}</p>
             <br />
             <div>
